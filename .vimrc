@@ -6,6 +6,9 @@ set smartindent
 set autoindent
 "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
 set smarttab
+set tabstop=4
+set expandtab
+set shiftwidth=4
 
 let mapleader=","
 set backspace=indent,eol,start
