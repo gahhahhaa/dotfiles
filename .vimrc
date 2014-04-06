@@ -43,3 +43,15 @@ endif
 syntax on
 filetype plugin on
 filetype indent on
+
+"---------キーマップ-----------
+"クリップボードの貼り付け設定
+imap <F11> <nop>
+set pastetoggle=<F11>
+
+imap <C-B> <LEFT>
+imap <C-F> <RIGHT>
+imap <C-N> <DOWN>
+imap <C-P> <UP>
+imap <C-E> <esc>A
+imap <C-A> <esc>I
