@@ -55,3 +55,8 @@ imap <C-N> <DOWN>
 imap <C-P> <UP>
 imap <C-E> <esc>A
 imap <C-A> <esc>I
+
+"---------マウス操作----------
+set mouse=a
+set ttymouse=xterm2
+set clipboard+=unnamed,autoselect
