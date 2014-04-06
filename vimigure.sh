@@ -1,13 +1,16 @@
-#! /bin/sh
+#!/bin/bash
 
-sudo ./configure \
---with-features=huge \ 
-#--enable-perlinterp \
-#--enable-python3interp \
-#--enable-rubyinterp \
-#--enable-luainterp \
-#--with-luajit \
-#--with-x \
-#--with-gnome \
-#--enable-xim \
-#--enable-fail-if-missing
+sudo ./configure --with-features=huge \
+--enable-multibyte \
+--enable-perlinterp \
+--enable-python3interp \
+--enable-rubyinterp \
+--enable-luainterp=dynamic \
+--with-lua-prefix=/usr/local \
+--with-luajit \
+--with-x \
+--with-gnome \
+--enable-xim \
+--enable-fontset \
+--disable-selinux \
+--enable-fail-if-missing \
