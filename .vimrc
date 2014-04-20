@@ -60,3 +60,5 @@ imap <C-A> <esc>I
 set mouse=a
 set ttymouse=xterm2
 set clipboard+=unnamed,autoselect
+
+set noswapfile
