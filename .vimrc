@@ -18,17 +18,19 @@ if has('vim_starting')
  " My Bundles here:
  NeoBundle 'Shougo/neosnippet.vim'
  NeoBundle 'Shougo/neosnippet-snippets'
+ NeoBundle 'Shougo/neocomplete.vim'
  NeoBundle 'Shougo/unite.vim'
  NeoBundle 'Shougo/vimshell.vim'
  NeoBundle 'jonathanfilip/vim-lucius'
-NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-    \ 'windows' : 'make -f make_mingw32.mak',
-    \ 'cygwin' : 'make -f make_cygwin.mak',
-    \ 'mac' : 'make -f make_mac.mak',
-    \ 'unix' : 'make -f make_unix.mak',
-  \ },
-\ }
+ NeoBundle 'elzr/vim-json'
+ NeoBundle 'Shougo/vimproc', {
+   \ 'build' : {
+     \ 'windows' : 'make -f make_mingw32.mak',
+     \ 'cygwin' : 'make -f make_cygwin.mak',
+     \ 'mac' : 'make -f make_mac.mak',
+     \ 'unix' : 'make -f make_unix.mak',
+   \ },
+ \ }
 
  call neobundle#end()
 
