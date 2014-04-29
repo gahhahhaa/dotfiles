@@ -23,6 +23,7 @@ if has('vim_starting')
  NeoBundle 'Shougo/vimshell.vim'
  NeoBundle 'jonathanfilip/vim-lucius'
  NeoBundle 'elzr/vim-json'
+ NeoBundle 'bling/vim-airline'
  NeoBundle 'Shougo/vimproc', {
    \ 'build' : {
      \ 'windows' : 'make -f make_mingw32.mak',
