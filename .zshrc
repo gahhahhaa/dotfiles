@@ -122,7 +122,7 @@ fi
 [ -s "/home/vagrant/.nvm/nvm.sh" ] && . "/home/vagrant/.nvm/nvm.sh" # This loads nvm
 
 if [ $SHLVL = 1 ] ; then
-    alias tmux="tmux attach || tmux new-session \; source-file $HOME/dotfiles/.tmux/pane_partition"
+    alias tmux="tmux new-session \; source-file $HOME/dotfiles/.tmux/pane_partition"
 fi
 
-. $HOME/dotfiles/powerline/powerline/bindings/zsh/powerline.zsh
+. "$HOME/dotfiles/powerline/powerline/bindings/zsh/powerline.zsh"

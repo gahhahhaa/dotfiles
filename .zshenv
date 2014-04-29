@@ -14,3 +14,7 @@ if [ -d "${PYENV_ROOT}" ]; then
   export PATH="${PYENV_ROOT}/bin:${PATH}"
   eval "$(pyenv init -)"
 fi
+
+if [ -d "$HOME/dotfiles/powerline/scripts" ]; then
+    PATH="$HOME/dotfiles/powerline/scripts:$PATH"
+fi
