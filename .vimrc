@@ -114,3 +114,5 @@ set laststatus=2
 
 colorscheme lucius 
 LuciusDarkHighContrast
+
+set clipboard=unnamedplus

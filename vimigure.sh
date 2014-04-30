@@ -6,7 +6,7 @@ sudo ./configure --with-features=huge \
 --enable-python3interp \
 --enable-rubyinterp \
 --enable-luainterp=dynamic \
---with-lua-prefix=/usr/local \
+--with-lua-prefix=/usr \
 --with-luajit \
 --with-x \
 --with-gnome \
