@@ -22,8 +22,15 @@ if has('vim_starting')
  NeoBundle 'Shougo/unite.vim'
  NeoBundle 'Shougo/vimshell.vim'
  NeoBundle 'jonathanfilip/vim-lucius'
+ NeoBundle 'raphamorim/lucario'
  NeoBundle 'elzr/vim-json'
+ NeoBundle 'mattn/emmet-vim'
  NeoBundle 'bling/vim-airline'
+ NeoBundle 'fatih/vim-go'
+ NeoBundle 'thinca/vim-quickrun'
+ NeoBundle 'mrk21/yaml-vim'
+ NeoBundle 'Yggdroot/indentLine'
+ NeoBundle 'tpope/vim-endwise'
  NeoBundle 'Shougo/vimproc', {
    \ 'build' : {
      \ 'windows' : 'make -f make_mingw32.mak',
@@ -48,15 +55,6 @@ if has('vim_starting')
 "
 "VIM互換にしない
 set nocompatible
-"-------Format--------
-"自動インデントを有効化する
-set smartindent
-set autoindent
-"行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
-set smarttab
-set tabstop=4
-set expandtab
-set shiftwidth=4
 
 let mapleader=","
 set backspace=indent,eol,start
@@ -88,7 +86,7 @@ elseif has('win32')
 endif
 
 "ファイルタイプに応じて挙動,色を変える
-syntax on
+syntax enable
 filetype plugin on
 filetype indent on
 
@@ -104,15 +102,48 @@ imap <C-P> <UP>
 imap <C-E> <esc>A
 imap <C-A> <esc>I
 
+vmap <silent> ;h :s?^\(\s*\)+'\([^']\+\)',*\s*$?\1\2?g<CR>
+vmap <silent> ;q :s?^\(\s*\)\(.*\)\s*$?\1+'\2'?<CR>
+
 "---------マウス操作----------
 set mouse=a
 set ttymouse=xterm2
-set clipboard+=unnamed,autoselect
+set clipboard+=unnamed
 
 set noswapfile
 set laststatus=2
+set number
 
-colorscheme lucius 
-LuciusDarkHighContrast
+colorscheme lucario
+"colorscheme lucius 
+"LuciusDarkHighContrast
 
-set clipboard=unnamedplus
+"set clipboard=unnamedplus
+"set clipboard=unnamed,autoselect
+
+"--------vim-go-------------
+let  g:go_disable_autoinstall=1
+
+"--------vim-json-------------
+let g:vim_json_syntax_conceal = 0
+
+"-------Format--------
+"自動インデントを有効化する
+set smartindent
+set autoindent
+set list lcs=tab:\|\ 
+"行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
+set smarttab
+set tabstop=4
+set expandtab
+set shiftwidth=4
+au BufNewFile,BufRead *.rb set expandtab tabstop=2 shiftwidth=2
+au BufNewFile,BufRead Gemfile set expandtab tabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.scss set expandtab tabstop=2 shiftwidth=2
+
+"ruby
+source $VIMRUNTIME/macros/matchit.vim
+augroup matchit
+  au!
+  au FileType ruby let b:match_words = '\<\(module\|class\|def\|begin\|do\|if\|unless\|case\)\>:\<\(elsif\|when\|rescue\)\>:\<\(else\|ensure\)\>:\<end\>'
+augroup END
