@@ -15,9 +15,9 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-eval "$(direnv hook zsh)"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+#eval #$(direnv hook zsh)#
+#export PATH=#$HOME/.rbenv/bin:$PATH#
+#eval #$(rbenv init -)#
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -30,3 +30,5 @@ alias jkyotei='jump_kyotei'
 
 # OPAM configuration
 . /home/vagrant/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mykbd $DISPLAY 2> /dev/null

@@ -114,9 +114,9 @@ set noswapfile
 set laststatus=2
 set number
 
-colorscheme lucario
-"colorscheme lucius 
-"LuciusDarkHighContrast
+"colorscheme lucario
+colorscheme lucius 
+LuciusDarkHighContrast
 
 "set clipboard=unnamedplus
 "set clipboard=unnamed,autoselect
