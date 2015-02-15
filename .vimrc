@@ -23,6 +23,7 @@ if has('vim_starting')
  NeoBundle 'Shougo/vimshell.vim'
  NeoBundle 'jonathanfilip/vim-lucius'
  NeoBundle 'raphamorim/lucario'
+ NeoBundle 'mattn/emmet-vim'
  NeoBundle 'elzr/vim-json'
  NeoBundle 'mattn/emmet-vim'
  NeoBundle 'bling/vim-airline'
@@ -126,7 +127,6 @@ let  g:go_disable_autoinstall=1
 
 "--------vim-json-------------
 let g:vim_json_syntax_conceal = 0
-
 "-------Format--------
 "自動インデントを有効化する
 set smartindent
