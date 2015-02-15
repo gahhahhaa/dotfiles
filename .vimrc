@@ -27,7 +27,10 @@ if has('vim_starting')
  NeoBundle 'elzr/vim-json'
  NeoBundle 'mattn/emmet-vim'
  NeoBundle 'bling/vim-airline'
+ NeoBundle 'groenewege/vim-less'
  NeoBundle 'fatih/vim-go'
+ NeoBundle 'rking/ag.vim'
+ NeoBundle 'slim-template/vim-slim'
  NeoBundle 'thinca/vim-quickrun'
  NeoBundle 'mrk21/yaml-vim'
  NeoBundle 'Yggdroot/indentLine'
@@ -98,8 +101,8 @@ set pastetoggle=<F11>
 
 imap <C-B> <LEFT>
 imap <C-F> <RIGHT>
-imap <C-N> <DOWN>
-imap <C-P> <UP>
+"imap <C-N> <DOWN>
+"imap <C-P> <UP>
 imap <C-E> <esc>A
 imap <C-A> <esc>I
 
@@ -116,7 +119,6 @@ set laststatus=2
 set number
 
 colorscheme lucario
-"colorscheme lucius 
 "LuciusDarkHighContrast
 
 "set clipboard=unnamedplus
@@ -127,6 +129,7 @@ let  g:go_disable_autoinstall=1
 
 "--------vim-json-------------
 let g:vim_json_syntax_conceal = 0
+
 "-------Format--------
 "自動インデントを有効化する
 set smartindent
@@ -141,9 +144,62 @@ au BufNewFile,BufRead *.rb set expandtab tabstop=2 shiftwidth=2
 au BufNewFile,BufRead Gemfile set expandtab tabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.scss set expandtab tabstop=2 shiftwidth=2
 
+augroup HighlightTrailingSpaces
+  autocmd!
+  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+augroup END
+
 "ruby
 source $VIMRUNTIME/macros/matchit.vim
 augroup matchit
   au!
   au FileType ruby let b:match_words = '\<\(module\|class\|def\|begin\|do\|if\|unless\|case\)\>:\<\(elsif\|when\|rescue\)\>:\<\(else\|ensure\)\>:\<end\>'
 augroup END
+
+"------------------------------------
+" Unit.vim
+"------------------------------------
+let g:unite_source_history_yank_enable = 1
+try
+    let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+catch
+endtry
+" search a file in the filetree
+nnoremap <space><space> :split<cr> :<C-u>Unite -start-insert file_rec/async<CR>
+" reset not it is <C-l> normally
+:nnoremap <space>r <Plug>(unite_restart)
+
+"insert modeで開始
+let g:unite_enable_start_insert = 1
+
+" 大文字小文字を区別しない
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+
+" grep検索
+nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+
+" ディレクトリを指定してgrep検索
+nnoremap <silent> ,dg  :<C-u>Unite grep -buffer-name=search-buffer<CR>
+
+" カーソル位置の単語をgrep検索
+nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+
+" grep検索結果の再呼出
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+
+" unite grep に ag(The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
+"------------------------------------
+" ag.vim
+"------------------------------------
+" --- type * to search the word in all files in the current dif
+nmap * :Ag <c-r>=expand("<cword>")<cr><cr>
+nnoremap <space>/ :Ag 
