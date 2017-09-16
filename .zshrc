@@ -115,11 +115,9 @@ SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
 #時刻を表示させる
 alias history='history -E'
 alias be='bundle exec'
-alias ghc="stack ghc"
-alias ghci="stack ghci"
-alias runghc="stack runghc"
-alias runhaskell="stack runghc"
 alias dcm="docker-compose"
+alias prome="cd $HOME/projects/src/github.com/nekikara"
+alias lgw="cd $HOME/LGo/src"
 
 # cdコマンド実行後、lsを実行する
 function cd() {
@@ -137,21 +135,13 @@ eval "$(rbenv init -)"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-
 export LIBRALY_PATH="/usr/local/lib"
 
 export NVM_DIR="/Users/KEN/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-nvm use v7.5.0
-
-alias prome="cd $HOME/projects/src/github.com/nekikara"
-alias lgw="cd $HOME/LGo/src"
 
 # Added by Dato Launcher v2.0.1
 export PATH="$PATH:/Users/KEN/anaconda/bin"
-
-# Erlang
-alias r3="rebar3"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/KEN/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/KEN/google-cloud-sdk/path.zsh.inc'; fi
