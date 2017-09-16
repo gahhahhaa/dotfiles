@@ -57,6 +57,7 @@ export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30
 export ZLS_COLORS=$LS_COLORS
 # lsコマンド時、自動で色がつく(ls -Gのようなもの？)
 export CLICOLOR=true
+alias ls='ls -G'
 # 補完候補に色を付ける
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
@@ -102,7 +103,6 @@ precmd() {
 }
 
 
->>>>>>> update
 # ------------------------------
 # Other Settings
 # ------------------------------
@@ -126,32 +126,13 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-<<<<<<< HEAD
-eval "$(direnv hook zsh)"
+## rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-### Jump to
-jump_kyotei() {
-    cd /home/vagrant/Code/src/github.com/nekikara/kyotei_analysts
-}
-alias jkyotei='jump_kyotei'
-
-# OPAM configuration
-. /home/vagrant/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-=======
-
-. "$HOME/dotfiles/powerline/powerline/bindings/zsh/powerline.zsh"
-export PATH=$PATH:/Users/KEN/dotfiles/powerline/scripts
-
-alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
-alias exc='exercism'
-
-## rbenv
-eval "$(rbenv init -)"
 
 export LIBRALY_PATH="/usr/local/lib"
 
@@ -168,14 +149,8 @@ export PATH="$PATH:/Users/KEN/anaconda/bin"
 # Erlang
 alias r3="rebar3"
 
-# pony
-alias po="/Users/KEN/projects/src/github.com/nekikara/ponyc/build/release/ponyc"
-
-export PATH="/usr/local/opt/go@1.6/bin:$PATH"
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/KEN/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/KEN/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/KEN/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/KEN/google-cloud-sdk/completion.zsh.inc'; fi
-

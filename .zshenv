@@ -11,8 +11,6 @@ export RPROMPT="$r_time"
 
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
 
-alias ls='ls --color=auto'
-
 export PATH=$HOME/bin:$PATH
 
 export GOPATH=$HOME/projects
@@ -28,4 +26,3 @@ export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/build-tools:$PATH
 export PATH=$JAVA_HOME/bin:$PATH
-
